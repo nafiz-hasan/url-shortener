@@ -1,0 +1,14 @@
+%h1 URL Shortener
+
+%h2= link_to 'Create a short URL', new_aliased_link_path
+
+- @aliased_links.each do |aliased_link|
+  .aliased-link
+    %h2= link_to display_short_url(aliased_link),
+      destination_path(aliased_link.token),
+      data: { turbolinks: false }
+    %p= aliased_link.long_url
+    %p= link_to 'Metrics', metrics_path(aliased_link.token)
+    %p= link_to 'Edit', edit_aliased_link_path(aliased_link)
+    %p= link_to 'Destroy', aliased_link_path(aliased_link), method: :delete,
+      data: { confirm: 'Are you sure?' }

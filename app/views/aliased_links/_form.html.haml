@@ -1,0 +1,5 @@
+= simple_form_for @aliased_link do |f|
+  = f.input :long_url
+  = f.input :custom_token,
+    wrapper_html: { class: ('display-none' if hide_token == true).to_s }
+  = f.button :submit

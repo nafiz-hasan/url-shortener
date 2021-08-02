@@ -1,0 +1,9 @@
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+
+  Exclude:
+    - "bin/*"
+    - "db/schema.rb"
+    - "config/initializers/simple_form.rb"

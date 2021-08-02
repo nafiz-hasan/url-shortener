@@ -1,0 +1,23 @@
+%h1 URL Visit Info
+%h2= link_to 'Go to Index', root_path
+.aliased-link
+  %h2
+    Short URL:
+    = link_to display_short_url(@aliased_link),
+      destination_path(@aliased_link.token),
+      data: { turbolinks: false }
+  %h3
+    Long URL: #{@aliased_link.long_url}
+  %h2
+    Total visits: #{@infos.length}
+%table
+  %thead
+    %tr
+      %th Visitor's IP
+      %th Visited At
+      %th{ colspan: '3' }
+  %tbody
+    - @infos.each do |info|
+      %tr
+        %td= info.visitor_ip
+        %td= info.created_at
